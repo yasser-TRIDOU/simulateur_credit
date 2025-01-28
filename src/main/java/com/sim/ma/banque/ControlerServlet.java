@@ -19,9 +19,15 @@ public class ControlerServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.setAttribute("credit",new CreditModel());
+        CreditModel credit = new CreditModel();
+        credit.setMontant(0);
+        credit.setTaux(0);
+        credit.setDuree(0);
+        credit.setMonsualite(0);
+        request.setAttribute("credit",credit);
         request.getRequestDispatcher("vueCredit.jsp").forward(request, response);
     }
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
             double montant = Double.parseDouble(request.getParameter("montant"));
             double taux = Double.parseDouble(request.getParameter("taux"));

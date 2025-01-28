@@ -1,9 +1,10 @@
-<%@ page import="com.sim.ma.banque.model.CreditModel" %>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
+
 <!DOCTYPE html>
-<%
-    CreditModel creditModel = (CreditModel)request.getAttribute("credit");
-%>
+
+
 
 <html>
 <head>
@@ -67,23 +68,23 @@
         <div class="form-group">
             <label for="montant">Montant</label>
             <input type="text" id="montant" name="montant" placeholder="Entrer Montant"
-                   value="<%= creditModel.getMontant() %>">
+                   value="${credit.montant}">
         </div>
         <div class="form-group">
             <label for="taux">Taux</label>
             <input type="text" id="taux" name="taux" placeholder="Entrer Taux"
-                   value="<%= creditModel.getTaux() %>">
+                   value="${credit.taux}">
         </div>
         <div class="form-group">
             <label for="duree">Duree</label>
             <input type="text" id="duree" name="duree" placeholder="Entrer Duree"
-                   value="<%= creditModel.getDuree() %>">
+                   value="${credit.duree}">
         </div>
         <div class="form-group">
             <button type="submit">Calculer</button>
         </div>
     </form>
-    <p>Monsualite : <%= creditModel.getMonsualite() %></p>
+    <p>Monsualite ${credit.monsualite}</p>
 </div>
 </body>
 </html>
